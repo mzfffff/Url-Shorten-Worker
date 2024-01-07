@@ -1,12 +1,12 @@
 const config = {
-  no_ref: "off", //Control the HTTP referrer header, if you want to create an anonymous link that will hide the HTTP Referer header, please set to "on" .
+  no_ref: "on", //Control the HTTP referrer header, if you want to create an anonymous link that will hide the HTTP Referer header, please set to "on" .
   theme: "",//Homepage theme, use the empty value for default theme. To use urlcool theme, please fill with "theme/urlcool" .
   cors: "on",//Allow Cross-origin resource sharing for API requests.
   unique_link: false,//If it is true, the same long url will be shorten into the same short url
   custom_link: true,//Allow users to customize the short url.
   snapchat_mode: false,//The link will be distroyed after access.
-  visit_count: false,//Count visit times.
-  load_kv: false,//Load all from Cloudflare KV
+  visit_count: true,//Count visit times.
+  load_kv: true,//Load all from Cloudflare KV
   shorturl_system: true,//Check value is valid URL && 302 jump to the value
 }
 
@@ -14,15 +14,15 @@ const protect_keylist = [
   "password",
 ]
 
-let index_html = "https://crazypeace.github.io/Url-Shorten-Worker/" + config.theme + "/index.html"
-let no_ref_html = "https://crazypeace.github.io/Url-Shorten-Worker/no-ref.html"
+let index_html = "https://mzfffff.github.io/Url-Shorten-Worker/" + config.theme + "/index.html"
+let no_ref_html = "https://mzfffff.github.io/Url-Shorten-Worker/no-ref.html"
 
 const html404 = `<!DOCTYPE html>
   <html>
   <body>
     <h1>404 Not Found.</h1>
     <p>The url you visit is not found.</p>
-    <p> <a href="https://github.com/crazypeace/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a> </p>
+    <p> <a href="https://github.com/mzfffff/Url-Shorten-Worker/" target="_self">Fork me on GitHub</a> </p>
   </body>
   </html>`
 
@@ -259,7 +259,7 @@ async function handleRequest(request) {
   // 如果path为空, 即直接访问本worker
   // If visit this worker directly (no path)
   if (!path) {
-    return Response.redirect("https://zelikk.blogspot.com/search/label/Url-Shorten-Worker", 302)
+    return Response.redirect("https://www.baidu.com/", 302)
     /* new Response(html404, {
       headers: {
         "content-type": "text/html;charset=UTF-8",
